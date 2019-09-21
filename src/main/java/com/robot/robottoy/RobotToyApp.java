@@ -44,7 +44,7 @@ public class RobotToyApp {
             
             Matcher matcher = pattern.matcher(userCommand.trim());
             
-           if(matcher.matches()){
+            if(matcher.matches()){
                
                System.out.println("MATCEHR FOUND is :" + matcher);
                
@@ -53,6 +53,20 @@ public class RobotToyApp {
                int postX = Integer.parseInt(placeCommandHolder[1]);
                int postY = Integer.parseInt(placeCommandHolder[2]);
                String directionValue = placeCommandHolder[3];
+
+               if(postX <= tableMaxLengthX && postY <= tableMaxLengthY && postX >= 0 && postY >= 0){
+                    
+                if(!robotOne.isOnTable()){
+                   robotOne.setOnTable(true);
+                }
+                robotOne.setPositionX(postX);
+                robotOne.setPositionY(postY);
+                robotOne.setFaceDirection(directionValue);
+                
+                System.out.println("After place commaand robot value :" + robotOne.toString() );
+                
+                   
+               }
                
            }
             
