@@ -66,9 +66,78 @@ public class RobotToyApp {
                 System.out.println("After place commaand robot value :" + robotOne.toString() );
                 
                    
+               }else{
+                    System.out.println("The input values are out of bound");
+                    System.out.println("Table input values for x and y are between 0 and " + tableXLength);
                }
                
            }
+            
+            
+            
+            //rotate left
+            if(userCommand.equals("LEFT")){
+               
+               
+                System.out.println("LEFT command current user direction  " + robotOne.getFaceDirection());
+               
+                switch(robotOne.getFaceDirection()){
+                    case "NORTH":
+                        robotOne.setFaceDirection("WEST");
+                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
+                        break;
+                        
+                    case "WEST":
+                        robotOne.setFaceDirection("SOUTH");
+                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
+                        break;
+
+                    case "SOUTH":
+                        robotOne.setFaceDirection("EAST");
+                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
+                        break;
+
+                    case "EAST":
+                        robotOne.setFaceDirection("NORTH");
+                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
+                        break;
+
+                   
+               }
+                
+            }
+                
+            //rotate right
+            if(userCommand.equals("RIGHT")){
+               
+                System.out.println("RIGHT command current user direction  " + robotOne.getFaceDirection());
+               
+                switch(robotOne.getFaceDirection()){
+                    case "NORTH":
+                        robotOne.setFaceDirection("EAST");
+                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
+                        break;
+
+                    case "EAST":
+                        robotOne.setFaceDirection("SOUTH");
+                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
+                        break;
+
+                    case "SOUTH":
+                        robotOne.setFaceDirection("WEST");
+                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
+                        break;
+
+                    case "WEST":
+                        robotOne.setFaceDirection("NORTH");
+                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
+                        break;
+
+
+                   
+               }
+               
+            }
             
         }
         
