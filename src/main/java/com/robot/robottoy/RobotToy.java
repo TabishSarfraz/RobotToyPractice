@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.robot.robottoy;
 
 /**
@@ -16,7 +11,6 @@ public class RobotToy {
     }
     
     public RobotToy(int positionX, int positionY, String faceDirection){
-        
         
         this.positionX = positionX;
         this.positionY = positionY;
@@ -70,7 +64,6 @@ public class RobotToy {
         return "Output: " + positionX + ", " + positionY + ", " + faceDirection ;
     }
     
-    //Created increment/decrease methods to be called from move command instead of robotToy.setPositonY(robotToy.getPosition() + 1 )
     public void incrementPositionY(){
         this.positionY++ ;
     }

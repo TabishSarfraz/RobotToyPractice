@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.robot.robottoy;
 
 /**
@@ -22,9 +17,11 @@ public class CommandActions {
         int rotatedNewIndex = -1;
 
         if(rotateTowards.equals(Commands.ROTATE_RIGHT_COMMAND)){
+            
             rotatedNewIndex = (indexOfCurrentDirection + 1 ) % sizeOfRotatedDirectionsList;
 
         }else if (rotateTowards.equals(Commands.ROTATE_LEFT_COMMAND)){
+            
             rotatedNewIndex = ((indexOfCurrentDirection - 1) + sizeOfRotatedDirectionsList ) % sizeOfRotatedDirectionsList;
         }
 
@@ -43,15 +40,18 @@ public class CommandActions {
         if(postX <= TableTop.TABLE_SIZE_X && postY <= TableTop.TABLE_SIZE_Y && postX >= 0 && postY >= 0){
 
             if(!robotOne.isOnTable()){
+                
                robotOne.setOnTable(true);
+               
             }
+            
             robotOne.setPositionX(postX);
             robotOne.setPositionY(postY);
             robotOne.setFaceDirection(directionValue);
 
        }else{
             
-            System.out.println("The input values are out of bound");
+            System.out.println("The input values are outside of table");
             
         }
     }

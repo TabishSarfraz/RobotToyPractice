@@ -1,12 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.robot.robottoy;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -44,26 +37,27 @@ public class RobotToyApp {
                
            }
            
-           if(robotOne.isOnTable()){
-            if(userCommand.equals(Commands.ROTATE_RIGHT_COMMAND) || userCommand.equals(Commands.ROTATE_LEFT_COMMAND)){
+            if(robotOne.isOnTable()){
+               
+                if(userCommand.equals(Commands.ROTATE_RIGHT_COMMAND) || userCommand.equals(Commands.ROTATE_LEFT_COMMAND)){
 
-                commandActions.rotateLeftOrRight(userCommand, robotOne);
+                    commandActions.rotateLeftOrRight(userCommand, robotOne);
+
+                }
+
+                if(userCommand.equals(Commands.MOVE_COMMAND)){
+
+                    commandActions.move(robotOne);
+
+                }
+
+                if(userCommand.equals(Commands.REPORT_COMMAND)){
+
+                    commandActions.report(robotOne);
+
+                }
 
             }
-
-            if(userCommand.equals(Commands.MOVE_COMMAND)){
-
-                commandActions.move(robotOne);
-
-            }
-
-            if(userCommand.equals(Commands.REPORT_COMMAND)){
-
-                commandActions.report(robotOne);
-
-            }
-
-         }
         }
         
     }
