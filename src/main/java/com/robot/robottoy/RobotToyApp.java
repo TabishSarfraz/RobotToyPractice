@@ -27,7 +27,7 @@ public class RobotToyApp {
         
         Scanner userInput = new Scanner(System.in);
         
-        Pattern pattern = Pattern.compile("^PLACE\\s\\d,\\d,(NORTH|SOUTH|EAST|WEST)");
+        Pattern pattern = Pattern.compile(Commands.PLACE_COMMAND_PATTERN);
         
         while(userInput.hasNextLine()){
             
@@ -36,11 +36,11 @@ public class RobotToyApp {
             
             System.out.println("userCommand is :" + userCommand);
             
-            Matcher matcher = pattern.matcher(userCommand.trim());
+            Matcher matchPlaceCommand = pattern.matcher(userCommand.trim());
             
-            if(matcher.matches()){
+            if(matchPlaceCommand.matches()){
                
-               System.out.println("MATCEHR FOUND is :" + matcher);
+               System.out.println("MATCEHR FOUND is :" + matchPlaceCommand);
                
                String[] placeCommandHolder = userCommand.replaceAll(",", " ").split("\\s");
                
@@ -67,7 +67,7 @@ public class RobotToyApp {
            }
             
             //rotate left
-            if(userCommand.equals("LEFT")){
+            if(userCommand.equals(Commands.ROTATE_LEFT_COMMAND)){
                    
                     int sizeOfRotatedDirectionsList = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.size();
                    
@@ -85,7 +85,7 @@ public class RobotToyApp {
            }
                 
             //rotate right
-            if(userCommand.equals("RIGHT")){
+            if(userCommand.equals(Commands.ROTATE_RIGHT_COMMAND)){
 
                     int sizeOfRotatedDirectionsList = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.size();
                    
@@ -103,7 +103,7 @@ public class RobotToyApp {
            }
             
             //move
-            if(userCommand.equals("MOVE")){
+            if(userCommand.equals(Commands.MOVE_COMMAND)){
                
                 switch(robotOne.getFaceDirection()){
                     case Directions.NORTH:
@@ -150,7 +150,7 @@ public class RobotToyApp {
                                    
            }
 
-            if(userCommand.equals("REPORT")){
+            if(userCommand.equals(Commands.MOVE_COMMAND)){
                
                System.out.println(robotOne.report());
                
