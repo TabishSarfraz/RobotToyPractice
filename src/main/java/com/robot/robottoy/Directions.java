@@ -18,6 +18,6 @@ public class Directions {
     public static final String WEST = "WEST";
     public static final String SOUTH = "SOUTH";
     
-    public static final ArrayList<String> RIGHT_ROTATED_DIRECTIONS_FROM_EAST = new ArrayList<>(Arrays.asList(EAST, NORTH , WEST, SOUTH));
+    public static final ArrayList<String> RIGHT_ROTATED_DIRECTIONS_FROM_EAST = new ArrayList<>(Arrays.asList( EAST, SOUTH, WEST, NORTH ));
     
 }
