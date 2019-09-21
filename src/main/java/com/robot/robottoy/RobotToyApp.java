@@ -150,7 +150,7 @@ public class RobotToyApp {
                                    
            }
 
-            if(userCommand.equals(Commands.MOVE_COMMAND)){
+            if(userCommand.equals(Commands.REPORT_COMMAND)){
                
                System.out.println(robotOne.report());
                
