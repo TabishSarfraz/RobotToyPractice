@@ -66,4 +66,8 @@ public class RobotToy {
         return "RobotToy{" + "positionX=" + positionX + ", positionY=" + positionY + ", faceDirection=" + faceDirection + ", onTable=" + onTable + '}';
     }
     
+    public String report(){
+        return "Output: " + positionX + ", " + positionY + ", " + faceDirection ;
+    }
+    
 }

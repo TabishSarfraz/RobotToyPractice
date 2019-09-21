@@ -139,6 +139,83 @@ public class RobotToyApp {
                
             }
             
+            //move
+           if(userCommand.equals("MOVE")){
+               
+                switch(robotOne.getFaceDirection()){
+                    case "NORTH":
+                        
+                        System.out.println(" Current Y Position " + robotOne.getPositionY());
+                        System.out.println(" Current X Position " + robotOne.getPositionX());
+                        
+                        if(robotOne.getPositionY() < tableMaxLengthY && robotOne.getPositionY() >= 0){
+                            
+                            robotOne.setPositionY(robotOne.getPositionY() + 1);
+                            
+                        }
+                        
+                        System.out.println(" NEW Y Position " + robotOne.getPositionY());
+                        System.out.println(" NEW X Position " + robotOne.getPositionX());
+                        
+                        break;
+
+                    case "SOUTH":
+                        
+                        System.out.println(" Current Y Position " + robotOne.getPositionY());
+                        System.out.println(" Current X Position " + robotOne.getPositionX());
+                        
+                        if(robotOne.getPositionY() <= tableMaxLengthY && robotOne.getPositionY() > 0){
+                            
+                            robotOne.setPositionY(robotOne.getPositionY() - 1);
+                            
+                        }
+                        
+                        System.out.println(" NEW Y Position " + robotOne.getPositionY());
+                        System.out.println(" NEW X Position " + robotOne.getPositionX());
+                        break;
+                        
+                    case "EAST":
+                        
+                        System.out.println(" Current Y Position " + robotOne.getPositionY());
+                        System.out.println(" Current X Position " + robotOne.getPositionX());
+                        
+                        if(robotOne.getPositionX() < tableMaxLengthX && robotOne.getPositionX() >= 0 ){
+                            
+                            robotOne.setPositionX(robotOne.getPositionX() + 1);
+                            
+                        }
+                        
+                        System.out.println(" NEW Y Position " + robotOne.getPositionY());
+                        System.out.println(" NEW X Position " + robotOne.getPositionX());
+                        break;
+
+
+                    case "WEST":
+                        
+                        System.out.println(" Current Y Position " + robotOne.getPositionY());
+                        System.out.println(" Current X Position " + robotOne.getPositionX());
+                        
+                        if(robotOne.getPositionX() <= tableMaxLengthX && robotOne.getPositionX() > 0 ){
+                            
+                            robotOne.setPositionX(robotOne.getPositionX()  - 1);
+                            
+                        }
+                        
+                        System.out.println(" NEW Y Position " + robotOne.getPositionY());
+                        System.out.println(" NEW X Position " + robotOne.getPositionX());
+                        break;
+               
+                    }
+                
+           }
+
+            
+            if(userCommand.equals("REPORT")){
+               
+               System.out.println(robotOne.report());
+               
+           }
+            
         }
         
     }
