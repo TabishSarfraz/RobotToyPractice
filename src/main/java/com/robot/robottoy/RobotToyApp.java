@@ -67,41 +67,23 @@ public class RobotToyApp {
            }
             
             //rotate left
-            if(userCommand.equals(Commands.ROTATE_LEFT_COMMAND)){
+            if(userCommand.equals(Commands.ROTATE_LEFT_COMMAND) || userCommand.equals(Commands.ROTATE_RIGHT_COMMAND)){
                    
-                    int sizeOfRotatedDirectionsList = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.size();
-                   
-                    int indexOfCurrentDirection = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.indexOf(robotOne.getFaceDirection());
-                   
-                    int leftRotatedNewIndex = ((indexOfCurrentDirection - 1) + sizeOfRotatedDirectionsList ) % sizeOfRotatedDirectionsList;
-                   
-                    System.out.println("LEFT command current user direction  " + robotOne.getFaceDirection());
-                   
-                    robotOne.setFaceDirection(Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(leftRotatedNewIndex));
-                   
-                    System.out.println( "rotatedIndex" + leftRotatedNewIndex +  " value : " + Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(leftRotatedNewIndex));
-                    System.out.println("direction has been changed to " + robotOne.getFaceDirection());
-                
-           }
-                
-            //rotate right
-            if(userCommand.equals(Commands.ROTATE_RIGHT_COMMAND)){
+                int sizeOfRotatedDirectionsList = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.size();
+                int indexOfCurrentDirection = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.indexOf(robotOne.getFaceDirection());
+                int rotatedNewIndex = -1;
 
-                    int sizeOfRotatedDirectionsList = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.size();
-                   
-                    int indexOfCurrentDirection = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.indexOf(robotOne.getFaceDirection());
+                if(userCommand.equals(Commands.ROTATE_RIGHT_COMMAND)){
+                    rotatedNewIndex = (indexOfCurrentDirection + 1 ) % sizeOfRotatedDirectionsList;
 
-                    int rightRotatedNewIndex = (indexOfCurrentDirection + 1 ) % sizeOfRotatedDirectionsList;
-                    
-                    System.out.println("RIGHT command current user direction  " + robotOne.getFaceDirection());
-                   
-                    robotOne.setFaceDirection(Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(rightRotatedNewIndex));
-                    
-                    System.out.println("direction has been changed to " + robotOne.getFaceDirection());
-                    System.out.println( "rotatedIndex" + rightRotatedNewIndex +  " value : " + Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(rightRotatedNewIndex));
+                }else if (userCommand.equals(Commands.ROTATE_LEFT_COMMAND)){
+                    rotatedNewIndex = ((indexOfCurrentDirection - 1) + sizeOfRotatedDirectionsList ) % sizeOfRotatedDirectionsList;
+                }
+
+                robotOne.setFaceDirection(Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(rotatedNewIndex));
 
            }
-            
+                   
             //move
             if(userCommand.equals(Commands.MOVE_COMMAND)){
                
