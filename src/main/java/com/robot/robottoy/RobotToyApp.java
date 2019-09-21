@@ -48,7 +48,7 @@ public class RobotToyApp {
                
                System.out.println("MATCEHR FOUND is :" + matcher);
                
-               String[] placeCommandHolder = userCommand.split("\\s");
+               String[] placeCommandHolder = userCommand.replaceAll(",", " ").split("\\s");
                
                int postX = Integer.parseInt(placeCommandHolder[1]);
                int postY = Integer.parseInt(placeCommandHolder[2]);
