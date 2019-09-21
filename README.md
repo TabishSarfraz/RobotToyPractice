@@ -152,7 +152,7 @@ If the direction is EAST, the robot will move right towards east.
 MOVE
 ```
 
-#### LEFT
+#### LEFT Command
 This will rotate the robot 90 degrees towards left direction.
 
 ##### Example 
@@ -161,7 +161,7 @@ If robot is currently at NORTH position running the command
 LEFT
 ```
 will move the robot to face WEST direction.
-#### RIGHT
+#### RIGHT Command
 This will rotate the robot 90 degrees towards right direction.
 
 ##### Example 
@@ -171,7 +171,7 @@ RIGHT
 ```
 will move the robot to face EAST direction.
 
-#### REPORT
+#### REPORT Command
 
 The REPORT command will display the display the X,Y and Direction of the robot.
 
