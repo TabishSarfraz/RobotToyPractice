@@ -70,4 +70,21 @@ public class RobotToy {
         return "Output: " + positionX + ", " + positionY + ", " + faceDirection ;
     }
     
+    //Created increment/decrease methods to be called from move command instead of robotToy.setPositonY(robotToy.getPosition() + 1 )
+    public void incrementPositionY(){
+        this.positionY++ ;
+    }
+    
+        public void decreasePositionY(){
+        this.positionY-- ;
+    }
+    
+    public void incrementPositionX(){
+        this.positionX++ ;
+    }
+    
+        public void decreasePositionX(){
+        this.positionX-- ;
+    }
+    
 }

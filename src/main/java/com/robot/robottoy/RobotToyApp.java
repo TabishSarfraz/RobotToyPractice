@@ -25,12 +25,6 @@ public class RobotToyApp {
         
         RobotToy robotOne = new RobotToy();
         
-        int tableXLength = 5;
-        int tableYLength = 5;
-        
-        int tableMaxLengthX = tableXLength - 1;
-        int tableMaxLengthY = tableYLength - 1;
-        
         Scanner userInput = new Scanner(System.in);
         
         Pattern pattern = Pattern.compile("^PLACE\\s\\d,\\d,(NORTH|SOUTH|EAST|WEST)");
@@ -54,7 +48,7 @@ public class RobotToyApp {
                int postY = Integer.parseInt(placeCommandHolder[2]);
                String directionValue = placeCommandHolder[3];
 
-               if(postX <= tableMaxLengthX && postY <= tableMaxLengthY && postX >= 0 && postY >= 0){
+               if(postX <= TableTop.TABLE_SIZE_X && postY <= TableTop.TABLE_SIZE_Y && postX >= 0 && postY >= 0){
                     
                 if(!robotOne.isOnTable()){
                    robotOne.setOnTable(true);
@@ -68,148 +62,94 @@ public class RobotToyApp {
                    
                }else{
                     System.out.println("The input values are out of bound");
-                    System.out.println("Table input values for x and y are between 0 and " + tableXLength);
                }
                
            }
-            
-            
             
             //rotate left
             if(userCommand.equals("LEFT")){
-               
-               
-                System.out.println("LEFT command current user direction  " + robotOne.getFaceDirection());
-               
-                switch(robotOne.getFaceDirection()){
-                    case "NORTH":
-                        robotOne.setFaceDirection("WEST");
-                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
-                        break;
-                        
-                    case "WEST":
-                        robotOne.setFaceDirection("SOUTH");
-                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
-                        break;
-
-                    case "SOUTH":
-                        robotOne.setFaceDirection("EAST");
-                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
-                        break;
-
-                    case "EAST":
-                        robotOne.setFaceDirection("NORTH");
-                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
-                        break;
-
                    
-               }
+                    int sizeOfRotatedDirectionsList = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.size();
+                   
+                    int indexOfCurrentDirection = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.indexOf(robotOne.getFaceDirection());
+                   
+                    int leftRotatedNewIndex = ((indexOfCurrentDirection - 1) + sizeOfRotatedDirectionsList ) % sizeOfRotatedDirectionsList;
+                   
+                    System.out.println("LEFT command current user direction  " + robotOne.getFaceDirection());
+                   
+                    robotOne.setFaceDirection(Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(leftRotatedNewIndex));
+                   
+                    System.out.println( "rotatedIndex" + leftRotatedNewIndex +  " value : " + Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(leftRotatedNewIndex));
+                    System.out.println("direction has been changed to " + robotOne.getFaceDirection());
                 
-            }
+           }
                 
             //rotate right
             if(userCommand.equals("RIGHT")){
-               
-                System.out.println("RIGHT command current user direction  " + robotOne.getFaceDirection());
-               
-                switch(robotOne.getFaceDirection()){
-                    case "NORTH":
-                        robotOne.setFaceDirection("EAST");
-                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
-                        break;
 
-                    case "EAST":
-                        robotOne.setFaceDirection("SOUTH");
-                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
-                        break;
-
-                    case "SOUTH":
-                        robotOne.setFaceDirection("WEST");
-                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
-                        break;
-
-                    case "WEST":
-                        robotOne.setFaceDirection("NORTH");
-                        System.out.println("direction has been changed to " + robotOne.getFaceDirection());
-                        break;
-
-
+                    int sizeOfRotatedDirectionsList = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.size();
                    
-               }
-               
-            }
+                    int indexOfCurrentDirection = Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.indexOf(robotOne.getFaceDirection());
+
+                    int rightRotatedNewIndex = (indexOfCurrentDirection + 1 ) % sizeOfRotatedDirectionsList;
+                    
+                    System.out.println("RIGHT command current user direction  " + robotOne.getFaceDirection());
+                   
+                    robotOne.setFaceDirection(Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(rightRotatedNewIndex));
+                    
+                    System.out.println("direction has been changed to " + robotOne.getFaceDirection());
+                    System.out.println( "rotatedIndex" + rightRotatedNewIndex +  " value : " + Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(rightRotatedNewIndex));
+
+           }
             
             //move
-           if(userCommand.equals("MOVE")){
+            if(userCommand.equals("MOVE")){
                
                 switch(robotOne.getFaceDirection()){
-                    case "NORTH":
-                        
-                        System.out.println(" Current Y Position " + robotOne.getPositionY());
-                        System.out.println(" Current X Position " + robotOne.getPositionX());
-                        
-                        if(robotOne.getPositionY() < tableMaxLengthY && robotOne.getPositionY() >= 0){
-                            
-                            robotOne.setPositionY(robotOne.getPositionY() + 1);
-                            
+                    case Directions.NORTH:
+
+                        if(robotOne.getPositionY() < TableTop.TABLE_MAX_LENGTH_Y && robotOne.getPositionY() >= 0){
+
+                            robotOne.incrementPositionY();
+
                         }
-                        
-                        System.out.println(" NEW Y Position " + robotOne.getPositionY());
-                        System.out.println(" NEW X Position " + robotOne.getPositionX());
-                        
+
                         break;
 
-                    case "SOUTH":
-                        
-                        System.out.println(" Current Y Position " + robotOne.getPositionY());
-                        System.out.println(" Current X Position " + robotOne.getPositionX());
-                        
-                        if(robotOne.getPositionY() <= tableMaxLengthY && robotOne.getPositionY() > 0){
-                            
-                            robotOne.setPositionY(robotOne.getPositionY() - 1);
-                            
+                    case Directions.SOUTH:
+
+                        if(robotOne.getPositionY() <= TableTop.TABLE_MAX_LENGTH_Y && robotOne.getPositionY() > 0){
+
+                            robotOne.decreasePositionY();
+
                         }
-                        
-                        System.out.println(" NEW Y Position " + robotOne.getPositionY());
-                        System.out.println(" NEW X Position " + robotOne.getPositionX());
+
                         break;
-                        
-                    case "EAST":
-                        
-                        System.out.println(" Current Y Position " + robotOne.getPositionY());
-                        System.out.println(" Current X Position " + robotOne.getPositionX());
-                        
-                        if(robotOne.getPositionX() < tableMaxLengthX && robotOne.getPositionX() >= 0 ){
-                            
-                            robotOne.setPositionX(robotOne.getPositionX() + 1);
-                            
+
+                    case Directions.EAST:
+
+                        if(robotOne.getPositionX() < TableTop.TABLE_MAX_LENGTH_X && robotOne.getPositionX() >= 0 ){
+
+                            robotOne.incrementPositionX();
+
                         }
-                        
-                        System.out.println(" NEW Y Position " + robotOne.getPositionY());
-                        System.out.println(" NEW X Position " + robotOne.getPositionX());
                         break;
 
 
-                    case "WEST":
-                        
-                        System.out.println(" Current Y Position " + robotOne.getPositionY());
-                        System.out.println(" Current X Position " + robotOne.getPositionX());
-                        
-                        if(robotOne.getPositionX() <= tableMaxLengthX && robotOne.getPositionX() > 0 ){
-                            
-                            robotOne.setPositionX(robotOne.getPositionX()  - 1);
-                            
+                    case Directions.WEST:
+
+                        if(robotOne.getPositionX() <= TableTop.TABLE_MAX_LENGTH_X && robotOne.getPositionX() > 0 ){
+
+                            robotOne.decreasePositionX();
+
                         }
-                        
-                        System.out.println(" NEW Y Position " + robotOne.getPositionY());
-                        System.out.println(" NEW X Position " + robotOne.getPositionX());
+
                         break;
-               
-                    }
-                
+
+                }              
+                                   
            }
 
-            
             if(userCommand.equals("REPORT")){
                
                System.out.println(robotOne.report());
