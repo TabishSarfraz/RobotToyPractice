@@ -14,50 +14,32 @@ public class RobotToyApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
         RobotToy robotOne = new RobotToy();
         
-        CommandActions commandActions = new CommandActions();
-
-        Scanner userInput = new Scanner(System.in);
+        CommandParser commandParser = new CommandParser();
         
-        Pattern pattern = Pattern.compile(Commands.PLACE_COMMAND_PATTERN);
-        
-        while(userInput.hasNextLine()){
-            
-            String userCommand = userInput.nextLine().trim();
+        System.out.println("Please enter one command per line: ");
 
-            System.out.println("userCommand is :" + userCommand);
-            
-            Matcher matchPlaceCommand = pattern.matcher(userCommand);
-            
-           if(matchPlaceCommand.matches()){
-               
-               commandActions.place(userCommand, robotOne);
-               
-           }
-           
-            if(robotOne.isOnTable()){
-               
-                if(userCommand.equals(Commands.ROTATE_RIGHT_COMMAND) || userCommand.equals(Commands.ROTATE_LEFT_COMMAND)){
+        try{
+            Scanner userInput = new Scanner(System.in);
 
-                    commandActions.rotateLeftOrRight(userCommand, robotOne);
+            while(userInput.hasNextLine()){
 
+                String userCommand = userInput.nextLine();
+
+                if(userCommand.equals("CLOSE") || userCommand.equals("EXIT")){
+                    break;
                 }
 
-                if(userCommand.equals(Commands.MOVE_COMMAND)){
-
-                    commandActions.move(robotOne);
-
-                }
-
-                if(userCommand.equals(Commands.REPORT_COMMAND)){
-
-                    commandActions.report(robotOne);
-
-                }
+                commandParser.parseCommand(userCommand, robotOne);
 
             }
+            
+            userInput.close();
+        
+        }catch(Exception e){
+            e.printStackTrace();
         }
         
     }
