@@ -61,7 +61,6 @@ To build the project, please navigate to the project root directory in command l
 ```sh 
 mvn clean install
 ```
-`put-your-code-here`
 
 ## Run
 The project can be run using .jar file or using maven command
