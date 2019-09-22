@@ -1,6 +1,7 @@
 package com.robot.robottoy;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 /**
  *
  * @author Tabish
@@ -10,6 +11,9 @@ public class RobotToyApp {
     /**
      * @param args the command line arguments
      */
+    
+    private final static Logger LOGGER = Logger.getLogger(RobotToyApp.class.getName());
+    
     public static void main(String[] args) {
         
         RobotToy robotOne = new RobotToy();
@@ -36,7 +40,7 @@ public class RobotToyApp {
             userInput.close();
         
         }catch(Exception e){
-            e.printStackTrace();
+            LOGGER.warning( "Exception " + e.getMessage());
         }
         
     }

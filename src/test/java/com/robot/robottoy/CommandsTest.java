@@ -34,6 +34,13 @@ public class CommandsTest {
     }
     
     @Test
+    public void testPlaceCommandHasCorrectValue() {
+
+        assertEquals("PLACE", Commands.PLACE_COMMAND);
+        
+    }
+    
+    @Test
     public void testPlaceCommandPatternHasCorrectValue() {
 
         assertEquals("^PLACE\\s\\d,\\d,(NORTH|SOUTH|EAST|WEST)", Commands.PLACE_COMMAND_PATTERN);

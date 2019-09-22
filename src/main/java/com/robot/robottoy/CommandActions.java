@@ -1,5 +1,7 @@
 package com.robot.robottoy;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Tabish Sarfraz
@@ -9,6 +11,8 @@ public class CommandActions {
     public CommandActions(){
             
     }
+    
+    private final static Logger LOGGER = Logger.getLogger(CommandActions.class.getName());
         
     public void rotateLeftOrRight(String rotateTowards, RobotToy robotOne){
 
@@ -24,88 +28,123 @@ public class CommandActions {
             
             rotatedNewIndex = ((indexOfCurrentDirection - 1) + sizeOfRotatedDirectionsList ) % sizeOfRotatedDirectionsList;
         }
-
-        robotOne.setFaceDirection(Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(rotatedNewIndex));
+        
+        if(rotatedNewIndex >= 0 && rotatedNewIndex < Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.size()){
+            
+            robotOne.setFaceDirection(Directions.RIGHT_ROTATED_DIRECTIONS_FROM_EAST.get(rotatedNewIndex));
+        
+        }else{
+            
+            LOGGER.log(Level.WARNING, "Incorrect rotated index", rotatedNewIndex);
+            
+        }
 
     }
     
     public void place(String userCommand, RobotToy robotOne){
         
         String[] placeCommandHolder = userCommand.replaceAll(",", " ").split("\\s");
-
+        
         int postX = Integer.parseInt(placeCommandHolder[1]);
         int postY = Integer.parseInt(placeCommandHolder[2]);
+        String commandPlace = placeCommandHolder[0];
         String directionValue = placeCommandHolder[3];
+        
+        if(commandPlace.equals(Commands.PLACE_COMMAND)){
+            
+            if(postX <= TableTop.TABLE_MAX_LENGTH_X && postY <= TableTop.TABLE_MAX_LENGTH_Y && postX >= 0 && postY >= 0){
 
-        if(postX <= TableTop.TABLE_SIZE_X && postY <= TableTop.TABLE_SIZE_Y && postX >= 0 && postY >= 0){
+                if(!robotOne.isOnTable()){
 
-            if(!robotOne.isOnTable()){
-                
-               robotOne.setOnTable(true);
-               
+                   robotOne.setOnTable(true);
+
+                }
+
+                robotOne.setPositionX(postX);
+                robotOne.setPositionY(postY);
+                robotOne.setFaceDirection(directionValue);
+
+           }else{
+
+                LOGGER.warning("The input values are outside of table");
+
             }
             
-            robotOne.setPositionX(postX);
-            robotOne.setPositionY(postY);
-            robotOne.setFaceDirection(directionValue);
-
-       }else{
-            
-            System.out.println("The input values are outside of table");
+        }else{
+                
+            LOGGER.warning("Incorrect place command");
             
         }
+        
     }
     
     public void report(RobotToy robotOne){
         
-        System.out.println(robotOne.report());
+        if(robotOne != null){
+        
+            System.out.println(robotOne.report());
+        
+        }else{
+            
+            LOGGER.warning("Robot does not exist");
+            
+        }
         
     }
     
     public void move(RobotToy robotOne){
         
-        switch(robotOne.getFaceDirection()){
-            case Directions.NORTH:
+        if(robotOne != null){
 
-                if(robotOne.getPositionY() < TableTop.TABLE_MAX_LENGTH_Y && robotOne.getPositionY() >= 0){
+            switch(robotOne.getFaceDirection()){
+                case Directions.NORTH:
 
-                    robotOne.incrementPositionY();
+                    if(robotOne.getPositionY() < TableTop.TABLE_MAX_LENGTH_Y && robotOne.getPositionY() >= 0){
 
-                }
+                        robotOne.incrementPositionY();
 
-                break;
+                    }
 
-            case Directions.SOUTH:
+                    break;
 
-                if(robotOne.getPositionY() <= TableTop.TABLE_MAX_LENGTH_Y && robotOne.getPositionY() > 0){
+                case Directions.SOUTH:
 
-                    robotOne.decreasePositionY();
+                    if(robotOne.getPositionY() <= TableTop.TABLE_MAX_LENGTH_Y && robotOne.getPositionY() > 0){
 
-                }
+                        robotOne.decreasePositionY();
 
-                break;
+                    }
 
-            case Directions.EAST:
+                    break;
 
-                if(robotOne.getPositionX() < TableTop.TABLE_MAX_LENGTH_X && robotOne.getPositionX() >= 0 ){
+                case Directions.EAST:
 
-                    robotOne.incrementPositionX();
+                    if(robotOne.getPositionX() < TableTop.TABLE_MAX_LENGTH_X && robotOne.getPositionX() >= 0 ){
 
-                }
-                break;
+                        robotOne.incrementPositionX();
+
+                    }
+                    break;
 
 
-            case Directions.WEST:
+                case Directions.WEST:
 
-                if(robotOne.getPositionX() <= TableTop.TABLE_MAX_LENGTH_X && robotOne.getPositionX() > 0 ){
+                    if(robotOne.getPositionX() <= TableTop.TABLE_MAX_LENGTH_X && robotOne.getPositionX() > 0 ){
 
-                    robotOne.decreasePositionX();
+                        robotOne.decreasePositionX();
 
-                }
+                    }
 
-                break;
+                    break;
 
-        }   
+            }
+
+        }else{
+            
+            LOGGER.warning("Robot does not exist");
+            
+        }
+        
     }
     
 }

@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.robot.robottoy;
 
+import java.io.InputStream;
 import java.util.Scanner;
 import org.junit.Before;
 import org.junit.Test;
@@ -136,35 +132,46 @@ public class TestData {
     @Test
     public void testDataFileOneExist(){
         
-        Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream("TestOne.txt"));
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("TestOne.txt");
+        
+        assertNotNull(inputStream);
         
     }
     
     @Test
     public void testDataFileTwoExist(){
         
-        Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream("TestTwo.txt"));
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("TestTwo.txt");
+        
+        assertNotNull(inputStream);
         
     }
     
     @Test
     public void testDataFileThreeExist(){
         
-        Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream("TestThree.txt"));
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("TestThree.txt");
+        
+        assertNotNull(inputStream);
         
     }
     
     @Test
     public void testDataFileFourExist(){
         
-        Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream("TestFour.txt"));
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("TestFour.txt");
         
+        assertNotNull(inputStream);
+
     }
     
     @Test
     public void testDataFileFiveExist(){
         
-        Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream("TestFive.txt"));
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("TestFive.txt");
+        
+        assertNotNull(inputStream);
+       
         
     }
     

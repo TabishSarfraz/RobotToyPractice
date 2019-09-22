@@ -19,6 +19,7 @@ public class CommandActionsTest {
     public void setUp() {
         
         robotOne = new RobotToy(1,2,"NORTH");
+        
         robotOne.setOnTable(true);
         
     }
@@ -69,6 +70,19 @@ public class CommandActionsTest {
         instance.move(robotOne);
 
         assertEquals(3, robotOne.getPositionY());
+    }
+    
+    @Test
+    public void testMoveCommandWithNullRobot(){
+        
+        CommandActions instance = new CommandActions();
+        
+        robotOne = null;
+        
+        instance.move(robotOne);
+        
+        assertNull(robotOne);
+        
     }
     
 }
