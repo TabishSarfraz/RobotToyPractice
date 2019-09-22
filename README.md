@@ -3,12 +3,13 @@
 
 ## Table of contents
 * [Introduction](#introduction)
+* [Technologies](#Technologies)
 * [Setup](#Setup)
 * [Build](#Build)
 * [Run](#Run)
 * [Tests](#Tests)
 * [Command inputs to robot](#Command-inputs-to-robot)
-* [Technologies](#Technologies)
+
 
 ## Introduction
 ### Description: 
@@ -41,13 +42,20 @@ The toy robot must not fall off the table during movement.  This also includes t
 
 
 
+## Technologies
+The application has been built using the following technologies:
+
+- Java 8    - Programming Language
+- Maven     - Dependency Management    
+- JUnit 4    - Testing framework
+
 ## Setup
 ### Prerequisite
-The application has been built using the following technologies:
+
 - Java 8 (JDK 1.8)
 - Maven 3.0.5
 
-To download JDK 1.8 please vist
+To download JDK 1.8 please visit
 ```sh
 https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 ```
@@ -112,7 +120,7 @@ mvn -Dtest=TestData.java#testDataFileOne test
 ```
 
 #### Test Data
-Test data files have been included in the project and are located under src/test/resources directory in .txt file extension.
+Test data files have been included in the project and are located under src/test/resources directory. The test data files have .txt extension.
 
 ## Command inputs to robot
 The commands are given to the robot using the standard input from the screen.
@@ -201,8 +209,3 @@ OR
 ```sh
 CLOSE
 ```
-
-## Technologies
-- Java 8    - Programming Language
-- Maven     - Dependency Management    
-- JUnit 4    - Testing framework
