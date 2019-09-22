@@ -65,7 +65,7 @@ public class CommandActions {
                 robotOne.setPositionY(postY);
                 robotOne.setFaceDirection(directionValue);
 
-           }else{
+            }else{
 
                 LOGGER.warning("The input values are outside of table");
 

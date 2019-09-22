@@ -34,23 +34,23 @@ public class CommandParser {
 
             }else if(robotOne.isOnTable()){
 
-                 if(userCommand.equals(Commands.ROTATE_RIGHT_COMMAND) || userCommand.equals(Commands.ROTATE_LEFT_COMMAND)){
+                if(userCommand.equals(Commands.ROTATE_RIGHT_COMMAND) || userCommand.equals(Commands.ROTATE_LEFT_COMMAND)){
 
-                     commandActions.rotateLeftOrRight(userCommand, robotOne);
+                    commandActions.rotateLeftOrRight(userCommand, robotOne);
 
-                 }
+                }
 
                  if(userCommand.equals(Commands.MOVE_COMMAND)){
 
-                     commandActions.move(robotOne);
+                    commandActions.move(robotOne);
 
-                 }
+                }
 
                  if(userCommand.equals(Commands.REPORT_COMMAND)){
 
-                     commandActions.report(robotOne);
+                    commandActions.report(robotOne);
 
-                 }
+                }
 
             }else{
 

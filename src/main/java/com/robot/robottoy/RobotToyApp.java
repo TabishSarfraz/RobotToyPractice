@@ -20,6 +20,7 @@ public class RobotToyApp {
         System.out.println("Please enter one command per line: ");
 
         try{
+            
             Scanner userInput = new Scanner(System.in);
 
             while(userInput.hasNextLine()){
