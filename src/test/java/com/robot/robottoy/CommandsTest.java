@@ -41,6 +41,20 @@ public class CommandsTest {
     }
     
     @Test
+    public void testExitCommandHasCorrectValue() {
+
+        assertEquals("EXIT", Commands.EXIT_COMMAND);
+        
+    }
+    
+    @Test
+    public void testCloseCommandHasCorrectValue() {
+
+        assertEquals("CLOSE", Commands.CLOSE_COMMAND);
+        
+    }
+    
+    @Test
     public void testPlaceCommandPatternHasCorrectValue() {
 
         assertEquals("^PLACE\\s\\d,\\d,(NORTH|SOUTH|EAST|WEST)", Commands.PLACE_COMMAND_PATTERN);

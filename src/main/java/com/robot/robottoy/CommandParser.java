@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.robot.robottoy;
 
 import java.util.logging.Logger;
@@ -30,6 +25,7 @@ public class CommandParser {
             CommandActions commandActions = new CommandActions();
 
             Pattern pattern = Pattern.compile(Commands.PLACE_COMMAND_PATTERN);
+            
             Matcher matchPlaceCommand = pattern.matcher(userCommand);
 
             if(matchPlaceCommand.matches()){

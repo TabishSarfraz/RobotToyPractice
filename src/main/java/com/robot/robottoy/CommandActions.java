@@ -35,7 +35,7 @@ public class CommandActions {
         
         }else{
             
-            LOGGER.log(Level.WARNING, "Incorrect rotated index", rotatedNewIndex);
+            LOGGER.log(Level.WARNING, "Incorrect rotated index {0}", rotatedNewIndex);
             
         }
 
@@ -47,6 +47,7 @@ public class CommandActions {
         
         int postX = Integer.parseInt(placeCommandHolder[1]);
         int postY = Integer.parseInt(placeCommandHolder[2]);
+        
         String commandPlace = placeCommandHolder[0];
         String directionValue = placeCommandHolder[3];
         

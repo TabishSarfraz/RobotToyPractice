@@ -15,6 +15,9 @@ public class Commands {
     public static final String ROTATE_RIGHT_COMMAND = "RIGHT";
     public static final String REPORT_COMMAND = "REPORT";
     public static final String PLACE_COMMAND = "PLACE";
+    public static final String EXIT_COMMAND = "EXIT";
+    public static final String CLOSE_COMMAND = "CLOSE";
+    
     public static final String PLACE_COMMAND_PATTERN = "^PLACE\\s\\d,\\d,(NORTH|SOUTH|EAST|WEST)";
     
 }

@@ -69,4 +69,37 @@ public class CommandParserTest {
         assertNull(robotOne);
     }
     
+    @Test
+    public void testParseCommandWithMoveCommandRobotNotOnTable() {
+
+        String userCommand = "MOVE";
+        
+        RobotToy robotOne = new RobotToy(1,1,"EAST");
+        
+        CommandParser instance = new CommandParser();
+        
+        instance.parseCommand(userCommand, robotOne);
+
+        assertEquals(1, robotOne.getPositionX());
+    }
+    
+    
+    @Test
+    public void testParseCommandWithMoveCommandRobotOnTable() {
+
+        String userCommand = "MOVE";
+        
+        RobotToy robotOne = new RobotToy(1,1,"EAST");
+        
+        robotOne.setOnTable(true);
+        
+        CommandParser instance = new CommandParser();
+        
+        instance.parseCommand(userCommand, robotOne);
+
+        assertEquals(2, robotOne.getPositionX());
+    }
+    
+    
+    
 }

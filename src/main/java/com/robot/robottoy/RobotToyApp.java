@@ -1,6 +1,7 @@
 package com.robot.robottoy;
 
 import java.util.Scanner;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
  *
@@ -8,10 +9,6 @@ import java.util.logging.Logger;
  */
 public class RobotToyApp {
 
-    /**
-     * @param args the command line arguments
-     */
-    
     private final static Logger LOGGER = Logger.getLogger(RobotToyApp.class.getName());
     
     public static void main(String[] args) {
@@ -29,8 +26,10 @@ public class RobotToyApp {
 
                 String userCommand = userInput.nextLine();
 
-                if(userCommand.equals("CLOSE") || userCommand.equals("EXIT")){
+                if(userCommand.equals(Commands.EXIT_COMMAND) || userCommand.equals(Commands.CLOSE_COMMAND)){
+                    
                     break;
+                    
                 }
 
                 commandParser.parseCommand(userCommand, robotOne);
@@ -40,7 +39,9 @@ public class RobotToyApp {
             userInput.close();
         
         }catch(Exception e){
-            LOGGER.warning( "Exception " + e.getMessage());
+            
+            LOGGER.log(Level.WARNING, "Exception {0}", e.getMessage());
+            
         }
         
     }
