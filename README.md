@@ -8,6 +8,7 @@
 * [Run](#Run)
 * [Tests](#Tests)
 * [Command inputs to robot](#Command-inputs-to-robot)
+* [Technologies](#Technologies)
 
 ## Introduction
 ### Description: 
@@ -201,3 +202,7 @@ OR
 CLOSE
 ```
 
+## Technologies
+- Java 8    - Programming Language
+- Maven     - Dependency Management    
+- Junit 4    - Testing framework
