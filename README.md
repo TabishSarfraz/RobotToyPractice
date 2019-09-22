@@ -84,10 +84,13 @@ mvn exec:java
 ```
 
 ## Tests
+
+### Testing All Tests
 To run only the tests associated with the project using maven, please use the following command in the project root directory
 ```sh
 mvn test
 ```
+### Testing Specific Test Class
 To run a specific test class use the following command:
 ```sh
 mvn -Dtest=TESTCLASSNAME.java test
@@ -96,6 +99,8 @@ For example
 ```sh
 mvn -Dtest=TestData.java test
 ```
+### Testing Specific Method in Test Class
+
 To run a specific method inside a test class use the following: 
 ```sh
 mvn -Dtest=TESTCLASSNAME.java#METHOD test
