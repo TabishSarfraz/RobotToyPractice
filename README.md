@@ -205,4 +205,4 @@ CLOSE
 ## Technologies
 - Java 8    - Programming Language
 - Maven     - Dependency Management    
-- Junit 4    - Testing framework
+- JUnit 4    - Testing framework
