@@ -27,7 +27,7 @@ public class CommandParserTest {
         
         CommandParser instance = new CommandParser();
         
-        instance.parseCommand(userCommand, robotOne);
+        instance.parseCommand(userCommand);
 
         assertEquals(robotOne.getPositionX(), 0);
         assertEquals(robotOne.getPositionX(), 0);
@@ -44,7 +44,7 @@ public class CommandParserTest {
         
         CommandParser instance = new CommandParser();
         
-        instance.parseCommand(userCommand, robotOne);
+        instance.parseCommand(userCommand);
 
         assertNull(robotOne);
 
@@ -59,7 +59,7 @@ public class CommandParserTest {
         
         CommandParser instance = new CommandParser();
         
-        instance.parseCommand(userCommand, robotOne);
+        instance.parseCommand(userCommand);
 
         assertNull(robotOne);
     }
@@ -73,7 +73,7 @@ public class CommandParserTest {
         
         CommandParser instance = new CommandParser();
         
-        instance.parseCommand(userCommand, robotOne);
+        instance.parseCommand(userCommand);
 
         assertEquals(1, robotOne.getPositionX());
     }
@@ -90,7 +90,9 @@ public class CommandParserTest {
         
         CommandParser instance = new CommandParser();
         
-        instance.parseCommand(userCommand, robotOne);
+        instance.robotOne = robotOne;
+        
+        instance.parseCommand(userCommand);
 
         assertEquals(2, robotOne.getPositionX());
     }

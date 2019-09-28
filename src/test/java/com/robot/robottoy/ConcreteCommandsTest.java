@@ -8,9 +8,9 @@ import static org.junit.Assert.*;
  *
  * @author Tabish Sarfraz
  */
-public class CommandActionsTest {
+public class ConcreteCommandsTest {
     
-    public CommandActionsTest() {
+    public ConcreteCommandsTest() {
     }
     
     private RobotToy robotOne;
@@ -29,10 +29,10 @@ public class CommandActionsTest {
 
         String rotateTowards = "LEFT";
 
-        CommandActions instance = new CommandActions();
+        Command instance = new RotateCommand(robotOne, rotateTowards);
         
-        instance.rotateLeftOrRight(rotateTowards, robotOne);
-
+        instance.execute();
+        
         assertEquals("WEST", robotOne.getFaceDirection());
 
     }
@@ -44,9 +44,9 @@ public class CommandActionsTest {
         
         RobotToy robotExpectedResult = new RobotToy(3,1,"SOUTH");
 
-        CommandActions instance = new CommandActions();
+        Command instance = new PlaceCommand(robotOne, userCommand);
         
-        instance.place(userCommand, robotOne);
+        instance.execute();
 
         assertEquals(robotExpectedResult.getPositionX(), robotOne.getPositionX());
         assertEquals(robotExpectedResult.getPositionY(), robotOne.getPositionY());
@@ -56,7 +56,9 @@ public class CommandActionsTest {
     @Test
     public void testReport() {
         
-        CommandActions instance = new CommandActions();
+        Command instance = new ReportCommand(robotOne);
+        
+        instance.execute();
 
         assertEquals("Output: 1, 2, NORTH", robotOne.report());
 
@@ -65,9 +67,9 @@ public class CommandActionsTest {
     @Test
     public void testMoveNorthFromPositionTwo() {
         
-        CommandActions instance = new CommandActions();
+        Command instance = new MoveCommand(robotOne);
         
-        instance.move(robotOne);
+        instance.execute();
 
         assertEquals(3, robotOne.getPositionY());
     }
@@ -75,12 +77,12 @@ public class CommandActionsTest {
     @Test
     public void testMoveCommandWithNullRobot(){
         
-        CommandActions instance = new CommandActions();
-        
         robotOne = null;
         
-        instance.move(robotOne);
+        Command instance = new MoveCommand(robotOne);
         
+        instance.execute();
+
         assertNull(robotOne);
         
     }

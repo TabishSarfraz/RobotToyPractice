@@ -13,8 +13,6 @@ public class RobotToyApp {
     
     public static void main(String[] args) {
         
-        RobotToy robotOne = new RobotToy();
-        
         CommandParser commandParser = new CommandParser();
         
         System.out.println("Please enter one command per line: ");
@@ -33,7 +31,7 @@ public class RobotToyApp {
                     
                 }
 
-                commandParser.parseCommand(userCommand, robotOne);
+                commandParser.parseCommand(userCommand);
 
             }
             

@@ -25,6 +25,8 @@ public class TestData {
         commandParser = new CommandParser();
         robotOne = new RobotToy();
         
+        commandParser.robotOne = robotOne;
+        
     }
     
     @Test
@@ -36,7 +38,7 @@ public class TestData {
             
             String userCommand = scanner.nextLine();
             
-            commandParser.parseCommand(userCommand, robotOne);
+            commandParser.parseCommand(userCommand);
             
         }
         
@@ -57,7 +59,7 @@ public class TestData {
             
             String userCommand = scanner.nextLine();
             
-            commandParser.parseCommand(userCommand, robotOne);
+            commandParser.parseCommand(userCommand);
             
         }
         
@@ -77,7 +79,7 @@ public class TestData {
             
             String userCommand = scanner.nextLine();
             
-            commandParser.parseCommand(userCommand, robotOne);
+            commandParser.parseCommand(userCommand);
             
         }
         
@@ -97,7 +99,7 @@ public class TestData {
             
             String userCommand = scanner.nextLine();
             
-            commandParser.parseCommand(userCommand, robotOne);
+            commandParser.parseCommand(userCommand);
             
         }
         
@@ -118,7 +120,7 @@ public class TestData {
             
             String userCommand = scanner.nextLine();
             
-            commandParser.parseCommand(userCommand, robotOne);
+            commandParser.parseCommand(userCommand);
             
         }
         
