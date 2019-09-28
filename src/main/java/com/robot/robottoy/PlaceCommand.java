@@ -31,7 +31,7 @@ public class PlaceCommand implements Command{
         String commandPlace = placeCommandHolder[0];
         String directionValue = placeCommandHolder[3];
         
-        if(commandPlace.equals(Commands.PLACE_COMMAND)){
+        if(commandPlace.equals(Commands.PLACE.getCommandValue())){
             
             if(postX <= TableTop.TABLE_MAX_LENGTH_X && postY <= TableTop.TABLE_MAX_LENGTH_Y && postX >= 0 && postY >= 0){
 

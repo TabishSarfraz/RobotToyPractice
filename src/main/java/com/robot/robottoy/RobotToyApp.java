@@ -25,7 +25,7 @@ public class RobotToyApp {
 
                 String userCommand = userInput.nextLine();
 
-                if(userCommand.equals(Commands.EXIT_COMMAND) || userCommand.equals(Commands.CLOSE_COMMAND)){
+                if(userCommand.equals(Commands.EXIT.getCommandValue()) || userCommand.equals(Commands.CLOSE.getCommandValue())){
                     
                     break;
                     

@@ -15,49 +15,49 @@ public class CommandsTest {
     @Test
     public void testMoveCommandHasCorrectValue() {
 
-        assertEquals("MOVE", Commands.MOVE_COMMAND);
+        assertEquals("MOVE", Commands.MOVE.getCommandValue());
         
     }
     
     @Test
     public void testRotateLeftHasCorrectValue() {
 
-        assertEquals("LEFT", Commands.ROTATE_LEFT_COMMAND);
+        assertEquals("LEFT", Commands.LEFT.getCommandValue());
         
     }
     
     @Test
     public void testRotateRightHasCorrectValue() {
 
-        assertEquals("RIGHT", Commands.ROTATE_RIGHT_COMMAND);
+        assertEquals("RIGHT", Commands.RIGHT.getCommandValue());
         
     }
     
     @Test
     public void testPlaceCommandHasCorrectValue() {
 
-        assertEquals("PLACE", Commands.PLACE_COMMAND);
+        assertEquals("PLACE", Commands.PLACE.getCommandValue());
         
     }
     
     @Test
     public void testExitCommandHasCorrectValue() {
 
-        assertEquals("EXIT", Commands.EXIT_COMMAND);
+        assertEquals("EXIT", Commands.EXIT.getCommandValue());
         
     }
     
     @Test
     public void testCloseCommandHasCorrectValue() {
 
-        assertEquals("CLOSE", Commands.CLOSE_COMMAND);
+        assertEquals("CLOSE", Commands.CLOSE.getCommandValue());
         
     }
     
     @Test
     public void testPlaceCommandPatternHasCorrectValue() {
 
-        assertEquals("^PLACE\\s\\d,\\d,(NORTH|SOUTH|EAST|WEST)", Commands.PLACE_COMMAND_PATTERN);
+        assertEquals("^PLACE\\s\\d,\\d,(NORTH|SOUTH|EAST|WEST)", Commands.PLACE_COMMAND_PATTERN.getCommandValue());
         
     }
     

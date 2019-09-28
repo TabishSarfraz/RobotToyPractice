@@ -48,7 +48,7 @@ public class CommandParser {
     
     private Command commandConcreteCreator(String userCommand){
         
-        Pattern pattern = Pattern.compile(Commands.PLACE_COMMAND_PATTERN);
+        Pattern pattern = Pattern.compile(Commands.PLACE_COMMAND_PATTERN.getCommandValue());
             
         Matcher matchPlaceCommand = pattern.matcher(userCommand);
         
@@ -57,16 +57,16 @@ public class CommandParser {
             return new PlaceCommand(robotOne, userCommand);
 
         }else if(robotOne.isOnTable()){
-
-            if(userCommand.equals(Commands.ROTATE_RIGHT_COMMAND) || userCommand.equals(Commands.ROTATE_LEFT_COMMAND)){
+            
+            if(userCommand.equals(Commands.RIGHT.getCommandValue()) || userCommand.equals(Commands.LEFT.getCommandValue())){
 
                 return new RotateCommand(robotOne, userCommand);
 
-            }else if(userCommand.equals(Commands.MOVE_COMMAND)){
+            }else if(userCommand.equals(Commands.MOVE.getCommandValue())){
 
                 return new MoveCommand(robotOne);
 
-            }else if(userCommand.equals(Commands.REPORT_COMMAND)){
+            }else if(userCommand.equals(Commands.REPORT.getCommandValue())){
 
                 return new ReportCommand(robotOne);
 

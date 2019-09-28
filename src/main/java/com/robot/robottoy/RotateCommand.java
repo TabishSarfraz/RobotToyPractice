@@ -30,11 +30,11 @@ public class RotateCommand implements Command {
         int indexOfCurrentDirection = Directions.valueOf(robotOne.getFaceDirection()).getDirectionIndex();
         int rotatedNewIndex = -1;
 
-        if(rotateDirectionTowards.equals(Commands.ROTATE_RIGHT_COMMAND)){
+        if(rotateDirectionTowards.equals(Commands.RIGHT.getCommandValue())){
             
             rotatedNewIndex = (indexOfCurrentDirection + 1 ) % sizeOfRotatedDirectionsList;
 
-        }else if (rotateDirectionTowards.equals(Commands.ROTATE_LEFT_COMMAND)){
+        }else if (rotateDirectionTowards.equals(Commands.LEFT.getCommandValue())){
             
             rotatedNewIndex = ((indexOfCurrentDirection - 1) + sizeOfRotatedDirectionsList ) % sizeOfRotatedDirectionsList;
         }
