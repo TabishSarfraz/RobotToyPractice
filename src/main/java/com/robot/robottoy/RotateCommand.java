@@ -1,9 +1,5 @@
 package com.robot.robottoy;
 
-import com.robot.robottoy.Directions;
-import com.robot.robottoy.RobotToy;
-import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

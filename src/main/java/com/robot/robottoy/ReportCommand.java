@@ -1,6 +1,5 @@
 package com.robot.robottoy;
 
-import com.robot.robottoy.RobotToy;
 import java.util.logging.Logger;
 
 /**

@@ -1,8 +1,5 @@
 package com.robot.robottoy;
 
-import com.robot.robottoy.Directions;
-import com.robot.robottoy.RobotToy;
-import com.robot.robottoy.TableTop;
 import java.util.logging.Logger;
 
 /**
