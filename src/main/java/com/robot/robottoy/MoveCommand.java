@@ -55,7 +55,6 @@ public class MoveCommand implements Command {
                     }
                     break;
 
-
                 case WEST:
 
                     if(robotOne.getPositionX() <= TableTop.TABLE_MAX_LENGTH_X && robotOne.getPositionX() > 0 ){
@@ -73,7 +72,6 @@ public class MoveCommand implements Command {
             LOGGER.warning("Robot does not exist");
             
         }
-        
         
     }
     
