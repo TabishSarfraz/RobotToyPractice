@@ -19,34 +19,6 @@ public class DirectionsTest {
     }
 
     @Test
-    public void testEastDirectionHasCorrectValue() {
-
-        assertEquals("EAST", Directions.EAST.toString());
-        
-    }
-    
-    @Test
-    public void testWestDirectionHasCorrectValue() {
-
-        assertEquals("WEST", Directions.WEST.toString());
-        
-    }
-    
-    @Test
-    public void testNorthDirectionHasCorrectValue() {
-
-        assertEquals("NORTH", Directions.NORTH.toString());
-        
-    }
-    
-    @Test
-    public void testSouthDirectionHasCorrectValue() {
-
-        assertEquals("SOUTH", Directions.SOUTH.toString());
-        
-    }
-    
-    @Test
     public void testRightRotatedDirectionsListStartingFromEast() {
 
          ArrayList<String> expectedRightRotatedListStartsFromEast = new ArrayList<>(Arrays.asList( EAST.toString(), SOUTH.toString(), WEST.toString(), NORTH.toString() ));

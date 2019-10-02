@@ -13,20 +13,27 @@ public class CommandParserTest {
     
     public CommandParserTest() {
     }
+    
+    private RobotToy robotOne;
+    
+    private String userCommand;
+    
+    private CommandParser instance;
 
     @Before
     public void setUp() {
+        
+        userCommand = "";
+        
+        robotOne = new RobotToy();
+        
+        instance = new CommandParser();
+        
     }
 
     @Test
     public void testParseCommandWithEmptyCommandValue() {
 
-        String userCommand = "";
-        
-        RobotToy robotOne = new RobotToy();
-        
-        CommandParser instance = new CommandParser();
-        
         instance.parseCommand(userCommand);
 
         assertEquals(robotOne.getPositionX(), 0);
@@ -38,11 +45,9 @@ public class CommandParserTest {
     @Test
     public void testParseCommandWithEmptyRobotValue() {
 
-        String userCommand = "MOVE";
+        userCommand = "MOVE";
         
-        RobotToy robotOne = null;
-        
-        CommandParser instance = new CommandParser();
+        robotOne = null;
         
         instance.parseCommand(userCommand);
 
@@ -52,12 +57,8 @@ public class CommandParserTest {
     
     @Test
     public void testParseCommandWithEmptyCommandAndRobotValue() {
-
-        String userCommand = "";
         
-        RobotToy robotOne = null;
-        
-        CommandParser instance = new CommandParser();
+        robotOne = null;
         
         instance.parseCommand(userCommand);
 
@@ -67,11 +68,9 @@ public class CommandParserTest {
     @Test
     public void testParseCommandWithMoveCommandRobotNotOnTable() {
 
-        String userCommand = "MOVE";
+        userCommand = "MOVE";
         
-        RobotToy robotOne = new RobotToy(1,1,"EAST");
-        
-        CommandParser instance = new CommandParser();
+        robotOne = new RobotToy(1,1,"EAST");
         
         instance.parseCommand(userCommand);
 
@@ -82,13 +81,11 @@ public class CommandParserTest {
     @Test
     public void testParseCommandWithMoveCommandRobotOnTable() {
 
-        String userCommand = "MOVE";
+        userCommand = "MOVE";
         
-        RobotToy robotOne = new RobotToy(1,1,"EAST");
+        robotOne = new RobotToy(1,1,"EAST");
         
         robotOne.setOnTable(true);
-        
-        CommandParser instance = new CommandParser();
         
         instance.robotOne = robotOne;
         

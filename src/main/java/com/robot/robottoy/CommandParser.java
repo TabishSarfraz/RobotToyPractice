@@ -1,8 +1,6 @@
 package com.robot.robottoy;
 
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  *
@@ -18,13 +16,15 @@ public class CommandParser {
     
     protected RobotToy robotOne = new RobotToy();
     
+    private ConcreteCommandFactory concreateCommandFactory = new ConcreteCommandFactory();
+    
     public void parseCommand(String userCommand){
         
             if(robotOne != null){
 
             userCommand = userCommand.trim();
-
-            Command command = commandConcreteCreator(userCommand);
+     
+            Command command = concreateCommandFactory.getConcreteCommand(userCommand, robotOne);
             
             if(command != null){
             
@@ -45,37 +45,5 @@ public class CommandParser {
         }
             
     }
-    
-    private Command commandConcreteCreator(String userCommand){
-        
-        Pattern pattern = Pattern.compile(Commands.PLACE_COMMAND_PATTERN.getCommandValue());
-            
-        Matcher matchPlaceCommand = pattern.matcher(userCommand);
-        
-        if(matchPlaceCommand.matches()){
 
-            return new PlaceCommand(robotOne, userCommand);
-
-        }else if(robotOne.isOnTable()){
-            
-            if(userCommand.equals(Commands.RIGHT.getCommandValue()) || userCommand.equals(Commands.LEFT.getCommandValue())){
-
-                return new RotateCommand(robotOne, userCommand);
-
-            }else if(userCommand.equals(Commands.MOVE.getCommandValue())){
-
-                return new MoveCommand(robotOne);
-
-            }else if(userCommand.equals(Commands.REPORT.getCommandValue())){
-
-                return new ReportCommand(robotOne);
-
-            }
-
-        }
-          
-        return null;
-        
-    }
-    
 }
