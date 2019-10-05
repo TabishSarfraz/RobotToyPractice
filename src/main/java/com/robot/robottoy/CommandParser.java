@@ -18,25 +18,25 @@ public class CommandParser {
     
     private ConcreteCommandFactory concreateCommandFactory = new ConcreteCommandFactory();
     
-    public void parseCommand(String userCommand){
+    public void parseCommand(String userCommandInput){
         
             if(robotOne != null){
 
-            userCommand = userCommand.trim();
-     
-            Command command = concreateCommandFactory.getConcreteCommand(userCommand, robotOne);
-            
-            if(command != null){
-            
-                CommandInvoker commandInvoker = new CommandInvoker(command);
-            
-                commandInvoker.executeCommand();
-                
-            }else{
-                
-                LOGGER.warning("Command incorrect or not recognised. Please enter a correct command:");
-                
-            }
+                userCommandInput = userCommandInput.trim();
+
+                Command command = concreateCommandFactory.getConcreteCommand(userCommandInput, robotOne);
+
+                if(command != null){
+
+                    CommandInvoker commandInvoker = new CommandInvoker(command);
+
+                    commandInvoker.executeCommand();
+
+                }else{
+
+                    LOGGER.warning("Command incorrect or not recognised. Please enter a correct command:");
+
+                }
             
         }else{
 

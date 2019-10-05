@@ -9,29 +9,28 @@ import java.util.logging.Logger;
 public class PlaceCommand implements Command{
     
     private RobotToy robotOne;
-    private String placeCommand;
+    private String[] placeCommandParams;
     
     private final static Logger LOGGER = Logger.getLogger(PlaceCommand.class.getName());
     
-    public PlaceCommand(RobotToy robotOne, String placeCommand){
+    public PlaceCommand(RobotToy robotOne, String[] placeCommandParams){
         
         this.robotOne = robotOne;
-        this.placeCommand = placeCommand;
+        this.placeCommandParams = placeCommandParams;
         
     }
     
     @Override
     public void execute(){
+
+        Commands commandPlace = Commands.valueOf(placeCommandParams[0]);
         
-        String[] placeCommandHolder = placeCommand.replaceAll(",", " ").split("\\s");
+        int postX = Integer.parseInt(placeCommandParams[1]);
+        int postY = Integer.parseInt(placeCommandParams[2]);
+                
+        Directions directionValue = Directions.getValueByName(placeCommandParams[3]);
         
-        int postX = Integer.parseInt(placeCommandHolder[1]);
-        int postY = Integer.parseInt(placeCommandHolder[2]);
-        
-        String commandPlace = placeCommandHolder[0];
-        String directionValue = placeCommandHolder[3];
-        
-        if(commandPlace.equals(Commands.PLACE.getCommandValue())){
+        if(commandPlace.equals(Commands.PLACE)){
             
             if(postX <= TableTop.TABLE_MAX_LENGTH_X && postY <= TableTop.TABLE_MAX_LENGTH_Y && postX >= 0 && postY >= 0){
 

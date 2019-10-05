@@ -1,5 +1,8 @@
 package com.robot.robottoy;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author Tabish Sarfraz
@@ -12,10 +15,11 @@ public enum Commands{
     REPORT("REPORT"),
     PLACE("PLACE"),
     EXIT("EXIT"),
-    CLOSE("CLOSE"),
-    PLACE_COMMAND_PATTERN("^PLACE\\s\\d,\\d,(NORTH|SOUTH|EAST|WEST)");
-    
+    CLOSE("CLOSE");
+
     private String commandValue;
+    
+    private static final Map<String, Commands> COMMANDS_MAP = new HashMap<>();
     
     private Commands(String commandValue){
         
@@ -26,6 +30,22 @@ public enum Commands{
     public String getCommandValue(){
         
         return commandValue;
+        
+    }
+    
+    static{ 
+        
+        for(Commands commandItem : Commands.values()){
+            
+            COMMANDS_MAP.put(commandItem.getCommandValue(), commandItem);
+            
+        }
+        
+    }
+    
+    public static Commands getCommandByName(String commandName){
+        
+        return COMMANDS_MAP.get(commandName);
         
     }
     

@@ -18,7 +18,7 @@ public class ConcreteCommandsTest {
     @Before
     public void setUp() {
         
-        robotOne = new RobotToy(1,2,"NORTH");
+        robotOne = new RobotToy(1,2,Directions.NORTH);
         
         robotOne.setOnTable(true);
         
@@ -27,22 +27,22 @@ public class ConcreteCommandsTest {
     @Test
     public void testRotateLeftOrRightWithRotateTowardsLeft() {
 
-        String rotateTowards = "LEFT";
+        Commands rotateTowards = Commands.LEFT;
 
         Command instance = new RotateCommand(robotOne, rotateTowards);
         
         instance.execute();
         
-        assertEquals("WEST", robotOne.getFaceDirection());
+        assertEquals(Directions.WEST, robotOne.getFaceDirection());
 
     }
 
     @Test
     public void testPlace() {
 
-        String userCommand = "PLACE 3,1,SOUTH";
+        String[] userCommand = "PLACE 3,1,SOUTH".replaceAll(",", " ").split("\\s");
         
-        RobotToy robotExpectedResult = new RobotToy(3,1,"SOUTH");
+        RobotToy robotExpectedResult = new RobotToy(3,1,Directions.SOUTH);
 
         Command instance = new PlaceCommand(robotOne, userCommand);
         

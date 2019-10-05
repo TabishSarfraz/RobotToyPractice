@@ -23,7 +23,7 @@ public class MoveCommand implements Command {
         
         if(robotOne != null){
             
-            Directions currentDirection = Directions.valueOf(robotOne.getFaceDirection());
+            Directions currentDirection = robotOne.getFaceDirection();
 
             switch(currentDirection){
                 case NORTH:

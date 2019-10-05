@@ -12,11 +12,11 @@ import java.util.logging.Logger;
 public class RotateCommand implements Command {
     
     private RobotToy robotOne;
-    private String rotateDirectionTowards;
+    private Commands rotateDirectionTowards;
     
     private final static Logger LOGGER = Logger.getLogger(RotateCommand.class.getName());
     
-    public RotateCommand(RobotToy robotOne, String rotateDirectionTowards){
+    public RotateCommand(RobotToy robotOne, Commands rotateDirectionTowards){
         
         this.robotOne = robotOne;
         this.rotateDirectionTowards = rotateDirectionTowards;
@@ -27,14 +27,14 @@ public class RotateCommand implements Command {
     public void execute(){
         
         int sizeOfRotatedDirectionsList = Directions.values().length;
-        int indexOfCurrentDirection = Directions.valueOf(robotOne.getFaceDirection()).getDirectionIndex();
+        int indexOfCurrentDirection = robotOne.getFaceDirection().getDirectionIndex();
         int rotatedNewIndex = -1;
 
-        if(rotateDirectionTowards.equals(Commands.RIGHT.getCommandValue())){
+        if(rotateDirectionTowards.equals(Commands.RIGHT)){
             
             rotatedNewIndex = (indexOfCurrentDirection + 1 ) % sizeOfRotatedDirectionsList;
 
-        }else if (rotateDirectionTowards.equals(Commands.LEFT.getCommandValue())){
+        }else if (rotateDirectionTowards.equals(Commands.LEFT)){
             
             rotatedNewIndex = ((indexOfCurrentDirection - 1) + sizeOfRotatedDirectionsList ) % sizeOfRotatedDirectionsList;
         }

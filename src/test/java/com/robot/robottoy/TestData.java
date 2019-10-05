@@ -46,7 +46,7 @@ public class TestData {
 
         assertEquals(4, robotOne.getPositionX());
         assertEquals(3, robotOne.getPositionY());
-        assertEquals("EAST", robotOne.getFaceDirection());
+        assertEquals(Directions.EAST, robotOne.getFaceDirection());
     }
     
     
@@ -67,7 +67,7 @@ public class TestData {
 
         assertEquals(0, robotOne.getPositionX());
         assertEquals(1, robotOne.getPositionY());
-        assertEquals("NORTH", robotOne.getFaceDirection());
+        assertEquals(Directions.NORTH, robotOne.getFaceDirection());
     }
 
     @Test
@@ -87,7 +87,7 @@ public class TestData {
 
         assertEquals(0, robotOne.getPositionX());
         assertEquals(0, robotOne.getPositionY());
-        assertEquals("WEST", robotOne.getFaceDirection());
+        assertEquals(Directions.WEST, robotOne.getFaceDirection());
     }
     
     @Test
@@ -107,7 +107,7 @@ public class TestData {
 
         assertEquals(3, robotOne.getPositionX());
         assertEquals(3, robotOne.getPositionY());
-        assertEquals("NORTH", robotOne.getFaceDirection());
+        assertEquals(Directions.NORTH, robotOne.getFaceDirection());
     }
     
     @Test
@@ -128,7 +128,7 @@ public class TestData {
 
         assertEquals(1, robotOne.getPositionX());
         assertEquals(2, robotOne.getPositionY());
-        assertEquals("NORTH", robotOne.getFaceDirection());
+        assertEquals(Directions.NORTH, robotOne.getFaceDirection());
     }
     
     @Test

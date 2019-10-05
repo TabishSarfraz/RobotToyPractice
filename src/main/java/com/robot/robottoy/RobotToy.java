@@ -10,7 +10,7 @@ public class RobotToy {
     
     }
     
-    public RobotToy(int positionX, int positionY, String faceDirection){
+    public RobotToy(int positionX, int positionY, Directions faceDirection){
         
         this.positionX = positionX;
         this.positionY = positionY;
@@ -20,7 +20,7 @@ public class RobotToy {
     
     private int positionX;
     private int positionY;
-    private String faceDirection;
+    private Directions faceDirection;
     private boolean onTable; 
 
     public int getPositionX() {
@@ -47,13 +47,13 @@ public class RobotToy {
         
     }
 
-    public String getFaceDirection() {
+    public Directions getFaceDirection() {
         
         return faceDirection;
         
     }
 
-    public void setFaceDirection(String faceDirection) {
+    public void setFaceDirection(Directions faceDirection) {
         
         this.faceDirection = faceDirection;
         

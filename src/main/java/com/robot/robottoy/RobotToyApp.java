@@ -23,15 +23,15 @@ public class RobotToyApp {
 
             while(userInput.hasNextLine()){
 
-                String userCommand = userInput.nextLine();
+                String userCommandInput = userInput.nextLine();
 
-                if(userCommand.equals(Commands.EXIT.getCommandValue()) || userCommand.equals(Commands.CLOSE.getCommandValue())){
+                if(userCommandInput.equals(Commands.EXIT.getCommandValue()) || userCommandInput.equals(Commands.CLOSE.getCommandValue())){
                     
                     break;
                     
                 }
 
-                commandParser.parseCommand(userCommand);
+                commandParser.parseCommand(userCommandInput);
 
             }
             

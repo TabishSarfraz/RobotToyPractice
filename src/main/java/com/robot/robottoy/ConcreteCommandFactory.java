@@ -9,36 +9,45 @@ import java.util.regex.Pattern;
  */
 public class ConcreteCommandFactory {
     
-    public Command getConcreteCommand(String userCommand, RobotToy robotOne){
+    private static final String PLACE_COMMAND_PATTERN_REGEX = "^PLACE\\s\\d,\\d,(NORTH|SOUTH|EAST|WEST)";
+    private static final Pattern PLACE_COMMAND_PATTERN = Pattern.compile(PLACE_COMMAND_PATTERN_REGEX);
+
     
-        Pattern pattern = Pattern.compile(Commands.PLACE_COMMAND_PATTERN.getCommandValue());
+    public Command getConcreteCommand(String userCommandInput, RobotToy robotOne){
+        
+        String[] userCommandParams =  userCommandInput.replaceAll(",", " ").split("\\s");
 
-        Matcher matchPlaceCommand = pattern.matcher(userCommand);
+        Commands userCommandEnum = Commands.getCommandByName(userCommandParams[0]);
+          
+        if(userCommandEnum != null){
+            
+            Matcher matchPlaceCommand = PLACE_COMMAND_PATTERN.matcher(userCommandInput);
 
-        if(matchPlaceCommand.matches()){
+            if(matchPlaceCommand.matches()){
 
-            return new PlaceCommand(robotOne, userCommand);
+                return new PlaceCommand(robotOne, userCommandParams);
 
-        }else if(robotOne.isOnTable()){
+            }else if(robotOne.isOnTable()){
 
-            if(userCommand.equals(Commands.RIGHT.getCommandValue()) || userCommand.equals(Commands.LEFT.getCommandValue())){
+                if(userCommandEnum.equals(Commands.RIGHT) || userCommandEnum.equals(Commands.LEFT)){
 
-                return new RotateCommand(robotOne, userCommand);
+                    return new RotateCommand(robotOne, userCommandEnum);
 
-            }else if(userCommand.equals(Commands.MOVE.getCommandValue())){
+                }else if(userCommandEnum.equals(Commands.MOVE)){
 
-                return new MoveCommand(robotOne);
+                    return new MoveCommand(robotOne);
 
-            }else if(userCommand.equals(Commands.REPORT.getCommandValue())){
+                }else if(userCommandEnum.equals(Commands.REPORT)){
 
-                return new ReportCommand(robotOne);
+                    return new ReportCommand(robotOne);
+
+                }
 
             }
 
         }
-
+        
         return null;
-
     }
           
 }

@@ -70,7 +70,7 @@ public class CommandParserTest {
 
         userCommand = "MOVE";
         
-        robotOne = new RobotToy(1,1,"EAST");
+        robotOne = new RobotToy(1,1,Directions.EAST);
         
         instance.parseCommand(userCommand);
 
@@ -83,7 +83,7 @@ public class CommandParserTest {
 
         userCommand = "MOVE";
         
-        robotOne = new RobotToy(1,1,"EAST");
+        robotOne = new RobotToy(1,1,Directions.EAST);
         
         robotOne.setOnTable(true);
         

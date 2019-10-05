@@ -15,7 +15,9 @@ public enum Directions{
     NORTH(3);
     
     private Integer directionIndex;
+    
     private static final Map<Integer, Directions> RIGHT_ROTATED_DIRECTIONS_FROM_EAST_MAP = new HashMap<>();
+    private static final Map<String, Directions> RIGHT_ROTATED_DIRECTIONS_FROM_EAST_MAP_BY_NAME = new HashMap<>();
     
     private Directions(Integer directionIndex){
     
@@ -34,14 +36,21 @@ public enum Directions{
         for(Directions directionItem: Directions.values()){
             
             RIGHT_ROTATED_DIRECTIONS_FROM_EAST_MAP.put(directionItem.getDirectionIndex(), directionItem);
+            RIGHT_ROTATED_DIRECTIONS_FROM_EAST_MAP_BY_NAME.put(directionItem.toString(), directionItem);
             
         }
         
     }
     
-    public static String getValueByIndex(Integer directionIndex){
+    public static Directions getValueByIndex(Integer directionIndex){
         
-        return RIGHT_ROTATED_DIRECTIONS_FROM_EAST_MAP.get(directionIndex).toString();
+        return RIGHT_ROTATED_DIRECTIONS_FROM_EAST_MAP.get(directionIndex);
+        
+    }
+    
+    public static Directions getValueByName(String directionName){
+        
+        return RIGHT_ROTATED_DIRECTIONS_FROM_EAST_MAP_BY_NAME.get(directionName);
         
     }
     
